@@ -12,11 +12,21 @@ Golang API Authentication using JWT Tokens
 +----------+------------------+------+-----+---------+----------------+
 | Field    | Type             | Null | Key | Default | Extra          |
 +----------+------------------+------+-----+---------+----------------+
+| id       | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
 | name     | longtext         | YES  |     | NULL    |                |
 | email    | varchar(191)     | YES  | UNI | NULL    |                |
 | password | longtext         | YES  |     | NULL    |                |
-| id       | int(10) unsigned | NO   | PRI | NULL    | auto_increment |
 +----------+------------------+------+-----+---------+----------------+
+```
+```
+CREATE TABLE users (
+     id INTEGER UNSIGNED AUTO_INCREMENT,
+     name longtext,
+     email varchar(191),
+     password longtext,
+     PRIMARY KEY (id),
+     CONSTRAINT email_unique UNIQUE (email)
+ );
 ```
 4) Make
 ```go run main.go```
